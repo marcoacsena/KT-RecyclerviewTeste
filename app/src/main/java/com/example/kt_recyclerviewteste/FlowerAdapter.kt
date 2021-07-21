@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class FlowerAdapter (val flowerList: Array<String>) :
+class FlowerAdapter (private val flowerList: Array<String>) :
     RecyclerView.Adapter<FlowerAdapter.FlowerViewHolder>() {
 
     // Returns a new ViewHolder
@@ -26,11 +26,12 @@ class FlowerAdapter (val flowerList: Array<String>) :
         return flowerList.size
     }
 
-    // Describes an item view and its place within the RecyclerView
-    class FlowerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    //Describes an item view and its place within the RecyclerView
+    inner class FlowerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         private val flowerTextView: TextView = itemView.findViewById(R.id.flower_text)
-        fun bind(word: String){
-            flowerTextView.text = word
+        fun bind(flowerName: String){
+            flowerTextView.text = flowerName
         }
     }
+
 }
